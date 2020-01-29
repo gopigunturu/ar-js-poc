@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="apple-mobile-web-app-capable" content="yes">
         <title>AR.js POC</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">       
@@ -15,13 +16,15 @@
     </head>
 
       <body style='margin : 0px; overflow: hidden;'>
-        <div style="position:fixed;left:1px;right:1px">3</div>
+        <div style="position:fixed;left:1px;right:1px">4</div>
         <a-assets>
           <video type="video/mp4" id="vid" autoplay="true" loop="false" src="assets/sampleVideo.mp4" webkit-playsinline></video>
         </a-assets>
         <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;'>
           <a-marker type='pattern' url='assets/pattern-frame.patt'>
-            <a-video src="#vid" position="0 0.5 0" rotation="270 0 0" vidhandler></a-video>
+            <a-video src="#vid" visible="false" javi1 id="videntity"
+class="video" webkit-playsinline playsinline width=1 height=1 position="0 0
+0" rotation="0 0 2" autoplay="false"></a-video>
           </a-marker>
           <a-entity camera></a-entity>
         </a-scene>
