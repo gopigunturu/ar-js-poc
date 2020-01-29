@@ -16,19 +16,32 @@
 
       <body style='margin : 0px; overflow: hidden;'>
         <a-assets>
-          <video id="penguin-sledding" autoplay loop="true" muted="true" src="assets/earth.mp4"></video>
+          <video id="vid" autoplay loop="true" muted="true" src="assets/earth.mp4"></video>
         </a-assets>
         <a-scene embedded arjs>
           <a-marker type='pattern' url='assets/pattern-frame.patt'>
-        <a-video src="#penguin-sledding" position="0 0.5 0" rotation="270 0 0" play="true"></a-video>
+        <a-video src="#vid" position="0 0.5 0" rotation="270 0 0" play="true" vidhandler></a-video>
           </a-marker>
           <a-entity camera></a-entity>
         </a-scene>
         
         <script>
-          window.addEventListener('click', function () {
-          var v = document.querySelector('#penguin-sledding');
-          v.play();
+          AFRAME.registerComponent('vidhandler', {
+            init: function () {
+              this.toggle = false;
+              document.querySelector("#vid").pause(); //reference to the video
+            },
+            tick:function(){  
+            if(document.querySelector("a-marker").object3D.visible == true){
+              if(!this.toggle){
+                this.toggle = true;
+                document.querySelector("#vid").play();
+              }
+            }else{
+              this.toggle = false;
+              document.querySelector("#vid").pause();
+            }
+            }
           });
         </script>
       </body>
