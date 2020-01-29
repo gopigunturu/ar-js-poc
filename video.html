@@ -16,9 +16,9 @@
     </head>
 
       <body style='margin : 0px; overflow: hidden;'>
-        <div style="position:fixed;left:1px;right:1px">5</div>
+        <div style="position:fixed;left:1px;right:1px">7</div>
         <a-assets>
-          <video type="video/mp4" id="vid" autoplay="true" loop="false" src="assets/sampleVideo.mp4" ></video>
+          <video type="video/mp4" id="vid" autoplay="true" loop="false" src="assets/sampleVideo.mp4" webkit-playsinline></video>
         </a-assets>
         <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;'>
           <a-marker type='pattern' url='assets/pattern-frame.patt'>
@@ -31,6 +31,7 @@
           AFRAME.registerComponent('vidhandler', {
             init: function () {
               this.toggle = false;
+              alert('loaded');
               document.querySelector("#vid").pause(); //reference to the video
             },
             tick:function(){  
