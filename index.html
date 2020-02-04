@@ -12,12 +12,12 @@
 
 		//get ID querystring - default to 1 if none
       var markerID = getParameterByName('ID');
-      if (!markerID) { markerID = 1; }	
+      if (!markerID && markerID != "") { markerID = "1"; }	
 
       var ngApp = angular.module('ngApp', []);
 	  
       ngApp.controller('ngController', function ngController($scope) {
-        $scope.version = 2.0;
+        $scope.version = "v2.0";
 
 		// data JSON - this could be called via HTTP GET
         var markerArray = [
