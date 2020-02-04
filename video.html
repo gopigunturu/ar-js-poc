@@ -12,18 +12,27 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script>
 
-      var markerID = getParameterByName('ID');
+      var markerID = getParameterByName('ID') ? getParameterByName('ID') : 1;
       
       var ngApp = angular.module('ngApp', []);
       ngApp.controller('ngController', function ngController($scope) {
+        $scope.version = 1.6;
         var markerArray = [
             {
               id: '1',
-              name: 'Fast just got faster with Nexus S.',
+              title: 'Movie Trailer',
               markerPattern: 'assets/pattern-frame.patt',
               markerImg: 'assets/pattern-frame.png',
               type: 'video',
               content: 'assets/sampleVideo.mp4'
+            },
+            {
+              id: '1',
+              title: 'Earth',
+              markerPattern: 'assets/pattern-frame.patt',
+              markerImg: 'assets/pattern-frame.png',
+              type: 'video',
+              content: 'assets/earth.mp4'
             }
           ];
 
@@ -61,7 +70,7 @@
     </script>
     
     <body style='margin : 0px; overflow: hidden;' ng-controller="ngController">
-        <div style="position:fixed;left:1px;right:1px">v1.6</div>
+        <div style="position:fixed;left:1px;top:1px">{{version}} {{marker.title}}</div>
         
         <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;'>
 
