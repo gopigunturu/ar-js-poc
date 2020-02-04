@@ -15,8 +15,8 @@
       var markerID = getParameterByName('ID');
       
       var ngApp = angular.module('ngApp', []);
-      ngApp.controller('ngController', function PhoneListController($scope) {
-        var phones = [
+      ngApp.controller('ngController', function ngController($scope) {
+        var markerArray = [
             {
               id: '1',
               name: 'Fast just got faster with Nexus S.',
@@ -27,9 +27,9 @@
             }
           ];
 
-          $scope.data = _.findWhere(publicServicePulitzers, {id: markerID});
+          $scope.marker = _.findWhere(markerArray, {id: markerID});
 
-          console.log($scope.data);
+          console.log($scope.marker);
       });
 
       AFRAME.registerComponent('vidhandler', {
@@ -66,10 +66,10 @@
         <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;'>
 
             <a-assets>
-                <video id="arvideo" autoplay loop="true" src="{{data.content}}"></video>
+                <video id="arvideo" autoplay loop="true" src="{{marker.content}}"></video>
             </a-assets>
             
-            <a-marker id="arvideomarker" type='pattern' url='{{data.markerPattern}}'>
+            <a-marker id="arvideomarker" type='pattern' url='{{marker.markerPattern}}'>
                 <a-video vidhandler src="#arvideo" rotation="90 0 180" position="0 0 0" scale="1.77 1 1"></a-video>
             </a-marker>  
             
