@@ -17,7 +17,7 @@
 
       var ngApp = angular.module('ngApp', []);
       ngApp.controller('ngController', function ngController($scope) {
-        $scope.version = 1.9;
+        $scope.version = 1.8;
 
         var markerArray = [
             {
@@ -80,21 +80,31 @@
     <body style='margin : 0px; overflow: hidden;' ng-controller="ngController">
         <div style="position:fixed;left:1px;top:1px">{{version}} - {{marker.title}}</div>
         
-        <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;'>
+        <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;' ng-if="marker.type == 'video'">
 
-            <a-assets ng-if="marker.type == 'video'">
+            <a-assets>
                 <video id="arvideo" autoplay loop="true" src="{{marker.content}}"></video>
             </a-assets>
             
             <a-marker id="arvideomarker" type='pattern' url='{{marker.markerPattern}}'>
-                <a-video vidhandler src="#arvideo" rotation="90 0 180" position="0 0 0" scale="1.77 1 1" ng-if="marker.type == 'video'"></a-video>
-				<a-entity scale='0.5 0.5 0.5' position="0 0.5 0" ng-if="marker.type == 'image'">
+                <a-video vidhandler src="#arvideo" rotation="90 0 180" position="0 0 0" scale="1.77 1 1"></a-video>
+				
+			</a-marker>  
+            
+            <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
+            <a-entity camera></a-entity>
+        </a-scene>
+		
+        <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;' ng-if="marker.type == 'image'">
+           
+            <a-marker id="arvideomarker" type='pattern' url='{{marker.markerPattern}}'>
+                <a-entity scale='0.5 0.5 0.5' position="0 0.5 0">
 					<a-box material='src:{{marker.content}}' rotation='270 0 0' width="5" height="5" depth='0.1'></a-box>
 				</a-entity> 
 			</a-marker>  
             
             <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
             <a-entity camera></a-entity>
-        </a-scene>
+        </a-scene>		
     </body>
 </html>
