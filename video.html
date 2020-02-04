@@ -12,11 +12,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script>
 
-      var markerID = getParameterByName('ID') ? getParameterByName('ID') : 1;
-      
+      var markerID = getParameterByName('ID');
+      if (!markerID) { alert('Invalid Marker ID'); }
+
       var ngApp = angular.module('ngApp', []);
       ngApp.controller('ngController', function ngController($scope) {
-        $scope.version = 1.6;
+        $scope.version = 1.7;
+        
         var markerArray = [
             {
               id: '1',
