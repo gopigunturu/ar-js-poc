@@ -17,8 +17,8 @@
 
       var ngApp = angular.module('ngApp', []);
       ngApp.controller('ngController', function ngController($scope) {
-        $scope.version = 1.7;
-        
+        $scope.version = 1.8;
+
         var markerArray = [
             {
               id: '1',
@@ -29,7 +29,7 @@
               content: 'assets/sampleVideo.mp4'
             },
             {
-              id: '1',
+              id: '2',
               title: 'Earth',
               markerPattern: 'assets/pattern-frame.patt',
               markerImg: 'assets/pattern-frame.png',
@@ -72,7 +72,7 @@
     </script>
     
     <body style='margin : 0px; overflow: hidden;' ng-controller="ngController">
-        <div style="position:fixed;left:1px;top:1px">{{version}} {{marker.title}}</div>
+        <div style="position:fixed;left:1px;top:1px">{{version}} - {{marker.title}}</div>
         
         <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;'>
 
