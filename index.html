@@ -16,7 +16,7 @@
       var ngApp = angular.module('ngApp', []);
 	  
       ngApp.controller('ngController', function ngController($scope) {
-        $scope.version = "v2.3";
+        $scope.version = "v2.4";
 
 		// data JSON - this could be called via HTTP GET
         var markerArray = [
@@ -80,7 +80,7 @@
         <div style="position:fixed;left:1px;top:1px">{{version}} - {{marker.title}}</div>
         <!-- Video Asset -->
             <a-assets>
-                <video id="arvideo" autoplay loop="true" src="{{marker.content}}"></video>
+                <video id="arvideo" autoplay loop="true" muted="true" src="{{marker.content}}"></video>
             </a-assets>
 			
 			
