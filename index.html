@@ -18,6 +18,15 @@
 	  
       ngApp.controller('ngController', function ngController($scope) {
         $scope.version = "v2.4";
+      
+      let video = document.getElementById('arvideo');  
+      var toggleSound = document.body.addEventListener('touchstart', function(){
+        if(video.muted === true){
+          video.muted=false;
+        } else if(video.muted === false){
+          video.muted=true;
+        }
+      });
 
 		// data JSON - this could be called via HTTP GET
         var markerArray = [
