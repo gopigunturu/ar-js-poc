@@ -81,7 +81,7 @@
         <div style="position:fixed;left:1px;top:1px">{{version}} - {{marker.title}}</div>
         <!-- Video Asset -->
             <a-assets>
-                <video controls controlsList="nodownload" id="arvideo" autoplay loop="true" src="{{marker.content}}" 
+                <video controls controlsList="nodownload" id="arvideo" autoplay src="{{marker.content}}" 
                           type="video/mov" webkit-playsinline="true" playsinline="true" ></video>
             </a-assets>
 			
@@ -92,7 +92,7 @@
 			
             
             <a-marker id="arvideomarker" type='pattern' url='{{marker.markerPattern}}'>
-                <a-video vidhandler src="#arvideo" rotation="-90 0 0" position="0 0.1 0" scale="1.77 1 1" play="true"></a-video>				
+                <a-video vidhandler src="#arvideo" rotation="-90 0 0" position="0 0.1 0" scale="1.77 1 1" ></a-video>				
 			      </a-marker>  		
             
             <a-entity camera></a-entity>
