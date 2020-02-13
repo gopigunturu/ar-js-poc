@@ -2,6 +2,7 @@
 <html ng-app="ngApp">
     <head>
         <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
     </head>
     <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
     <script src="https://raw.githack.com/jeromeetienne/AR.js/2.1.4/aframe/build/aframe-ar.js"></script>
@@ -90,8 +91,8 @@
 			
             
             <a-marker id="arvideomarker" type='pattern' url='{{marker.markerPattern}}'>
-                <a-video vidhandler src="#arvideo" rotation="90 0 180" position="0 0 0" scale="1.77 1 1" play="true"></a-video>				
-			</a-marker>  		
+                <a-video vidhandler src="#arvideo" rotation="-90 0 0" position="0 0.1 0" scale="1.77 1 1" play="true"></a-video>				
+			      </a-marker>  		
             
             <a-entity camera></a-entity>
         </a-scene>
