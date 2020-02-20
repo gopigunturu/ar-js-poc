@@ -106,7 +106,7 @@
         <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;' ng-if="marker.type == 'video'">
 
             <a-marker id="arvideomarker" type='pattern' url='{{marker.markerPattern}}'>
-                <a-video src="#arvideo"  scale="1.77 1 1" ></a-video>				
+                <a-video src="#arvideo"  rotation="90 0 180" scale="1.77 1 1" ></a-video>				
 			      </a-marker>  		
             
             <a-entity camera></a-entity>
