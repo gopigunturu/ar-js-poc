@@ -94,15 +94,15 @@
     
     <body style='margin : 0px; overflow: hidden;' ng-controller="ngController">
         <div style="position:fixed;left:1px;top:1px">{{version}} - {{marker.title}}</div>
-        <!-- Video Asset -->
-            <a-assets>
-                <video id="arvideo" autoplay src="{{marker.content}}" 
-                  type="video/mp4" loop="true" muted="true" webkit-playsinline="true" playsinline="true" play="false" >      
-            </a-assets>
-			
-			
+
 		<!-- Video Marker -->
         <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;' ng-if="marker.type == 'video'">
+
+            <!-- Video Asset -->
+            <a-assets>
+              <video id="arvideo" autoplay src="{{marker.content}}" 
+                type="video/mp4" loop="true" muted="true" webkit-playsinline="true" playsinline="true" play="false" >      
+            </a-assets>
 
             <a-marker id="arvideomarker" type='pattern' url='{{marker.markerPattern}}'>
                 <a-video src="#arvideo"  rotation="90 0 180" scale="1.77 1 1" ></a-video>				
