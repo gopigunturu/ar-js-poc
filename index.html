@@ -96,9 +96,8 @@
         <div style="position:fixed;left:1px;top:1px">{{version}} - {{marker.title}}</div>
         <!-- Video Asset -->
             <a-assets>
-                <video id="arvideo" src="{{marker.content}}" 
-                          loop="true" muted="true" playsinline autoplay >      
-                </video>
+                <video id="arvideo" autoplay src="{{marker.content}}" 
+                  type="video/mp4" loop="true" muted="true" webkit-playsinline="true" playsinline="true" play="false" >      
             </a-assets>
 			
 			
