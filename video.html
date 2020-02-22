@@ -9,37 +9,8 @@
     <!-- add this script in order to load a large set of 3D model extensions-->
     <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
     <script src="js/underscore.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+   <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script> -->
     <script>
-
-      var markerID = getParameterByName('ID');
-      if (!markerID) { alert('Invalid Marker ID'); }
-
-      var ngApp = angular.module('ngApp', []);
-      ngApp.controller('ngController', function ngController($scope) {
-        $scope.version = 1.8;
-
-        var markerArray = [
-            {
-              id: '1',
-              title: 'Movie Trailer',
-              markerPattern: 'assets/pattern-frame.patt',
-              markerImg: 'assets/pattern-frame.png',
-              type: 'video',
-              content: 'assets/sampleVideo.mp4'
-            },
-            {
-              id: '2',
-              title: 'Earth',
-              markerPattern: 'assets/pattern-frame.patt',
-              markerImg: 'assets/pattern-frame.png',
-              type: 'video',
-              content: 'assets/earth.mp4'
-            }
-          ];
-
-          $scope.marker = _.findWhere(markerArray, {id: markerID});
-      });
 
       AFRAME.registerComponent('vidhandler', {
         init: function () {
@@ -67,16 +38,16 @@
       }
     </script>
     
-    <body style='margin : 0px; overflow: hidden;' ng-controller="ngController">
-        <div style="position:fixed;left:1px;top:1px">{{version}} - {{marker.title}}</div>
+    <body style='margin : 0px; overflow: hidden;'>
+        <div style="position:fixed;left:1px;top:1px">Movie Trailer</div>
         
         <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;'>
 
             <a-assets>
-                <video id="arvideo" autoplay loop="true" src="{{marker.content}}"></video>
+                <video id="arvideo" autoplay loop="true" src="assets/sampleVideo.mp4"></video>
             </a-assets>
             
-            <a-marker id="arvideomarker" type='pattern' url='{{marker.markerPattern}}'>
+            <a-marker id="arvideomarker" type='pattern' url='assets/pattern-frame.patt'>
                 <a-video vidhandler src="#arvideo" rotation="90 0 180" position="0 0 0" scale="1.77 1 1"></a-video>
             </a-marker>  
             
