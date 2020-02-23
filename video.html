@@ -38,16 +38,16 @@
       }
     </script>
     
-    <body style='margin : 0px; overflow: hidden;'>
+    <body style="margin : 0px; overflow: hidden;">
         <div style="position:fixed;left:1px;top:1px">Movie Trailer</div>
         
-        <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;'>
+        <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
 
             <a-assets>
                 <video id="arvideo" autoplay loop="true" src="assets/sampleVideo.mp4"></video>
             </a-assets>
             
-            <a-marker id="arvideomarker" type='pattern' url='assets/pattern-frame.patt'>
+            <a-marker id="arvideomarker" type="pattern" url="assets/pattern-frame.patt">
                 <a-video vidhandler src="#arvideo" rotation="90 0 180" position="0 0 0" scale="1.77 1 1"></a-video>
             </a-marker>  
             
