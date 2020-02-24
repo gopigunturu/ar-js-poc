@@ -18,24 +18,6 @@
 	  
       ngApp.controller('ngController', function ngController($scope) {
         $scope.version = "v2.4";
-      
-      let video = document.getElementById('arvideo');  
-//      video.muted=false;
-      var toggleSound = document.body.addEventListener('touchstart', function(){
-	 
-	 alert(video.muted);
-	      
-        if(video.muted === true){
-          video.muted=false;
-        } else if(video.muted === false){
-          video.muted=true;
-        }
-        if(video.play === true){
-          video.play=false;
-        } else if(video.play === false){
-          video.play=true;
-        }
-      });  
 
 		// data JSON - this could be called via HTTP GET
         var markerArray = [
@@ -127,4 +109,23 @@
         </a-scene>		
 		
     </body>
+    <script type="text/javascript">
+	 
+	let video = document.getElementById('arvideo');      
+	    
+        document.body.addEventListener('touchstart', function(){
+	 alert(video.muted);
+	      
+        if(video.muted === true){
+          video.muted=false;
+        } else if(video.muted === false){
+          video.muted=true;
+        }
+        if(video.play === true){
+          video.play=false;
+        } else if(video.play === false){
+          video.play=true;
+        }
+      });		
+    </script>	
 </html>
