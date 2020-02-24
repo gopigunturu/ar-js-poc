@@ -25,6 +25,9 @@
       let video = document.getElementById('arvideo');  
 //      video.muted=false;
       var toggleSound = document.body.addEventListener('touchstart', function(){
+	 
+	 alert(video.muted);
+	      
         if(video.muted === true){
           video.muted=false;
         } else if(video.muted === false){
