@@ -61,11 +61,12 @@
 
             <a-assets>
                 <video id="arvideo" src="assets/sampleVideo.mp4"
-                    type="video/mp4" loop="true" muted="true" webkit-playsinline="true" playsinline="true" play="false">
+                    type="video/mp4" >
             </a-assets>
             
             <a-marker id="arvideomarker" type="pattern" url="assets/pattern-frame.patt">
-                <a-video vidhandler src="#arvideo" rotation="90 0 180" scale="1.77 1 1"></a-video>
+                <a-video vidhandler src="#arvideo" rotation="90 0 180" scale="1.77 1 1"
+                      loop="true" muted="true" webkit-playsinline="true" playsinline="true" play="false"></a-video>
             </a-marker>  
             
             <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
