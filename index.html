@@ -81,7 +81,7 @@
         <div style="position:fixed;left:1px;top:1px">{{version}} - {{marker.title}}</div>
 
 		<!-- Video Marker -->
-        <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;' ng-if="marker.type == 'video'">
+        <a-scene id="arscene" embedded arjs='sourceType: webcam; debugUIEnabled: false;' ng-if="marker.type == 'video'">
 
             <!-- Video Asset -->
             <a-assets>
@@ -111,19 +111,20 @@
     </body>
     <script type="text/javascript">
 	 
-	let video = document.getElementById('arvideo');      
-	    
-        document.body.addEventListener('touchstart', function(){
+	let arscene = document.querySelector('#arscene');   
+	let arvideo = document.querySelector('#arvideo');    
+	  	    
+        arscene.addEventListener('touchstart', function(){
 	      
-        if(video.muted === true){
-          video.muted=false;
-        } else if(video.muted === false){
-          video.muted=true;
+        if(arvideo.muted === true){
+          arvideo.muted=false;
+        } else if(arvideo.muted === false){
+          arvideo.muted=true;
         }
-        if(video.play === true){
-          video.play=false;
-        } else if(video.play === false){
-          video.play=true;
+        if(arvideo.play === true){
+          arvideo.play=false;
+        } else if(arvideo.play === false){
+          arvideo.play=true;
         }
       });		
     </script>	
