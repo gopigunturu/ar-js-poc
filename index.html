@@ -110,12 +110,12 @@
         </a-scene>		
 		
     </body>
-    <script type="text/javascript">
+    <script >
 	 
-	var arscene = document.querySelector("arscene");   
-	var arvideo = document.querySelector("arvideo");    
+	var arscene = document.querySelector('#arscene');   
+	var arvideo = document.querySelector('#arvideo');    
 
-        alert("before touchstart event");
+     //   alert("before touchstart event");
 
         arscene.addEventListener('touchstart', function(){
 	      
@@ -131,6 +131,6 @@
         } else if(arvideo.play == false){
           arvideo.play=true;
         }
-      });		
+      }, false);		
     </script>	
 </html>
