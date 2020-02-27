@@ -48,26 +48,7 @@
           ];
 
           $scope.marker = _.findWhere(markerArray, {id: markerID});
-      });
-
-      AFRAME.registerComponent('vidhandler', {
-        init: function () {
-          this.toggle = false;
-          document.querySelector("#arvideo").pause(); //reference to the video
-        },
-        tick:function(){  
-          if(document.querySelector("#arvideomarker").object3D.visible == true){
-            if(!this.toggle){
-              this.toggle = true;
-              document.querySelector("#arvideo").play();
-            }
-          } else {
-            this.toggle = false;
-            document.querySelector("#arvideo").pause();
-          }
-        }
-      });
-	  
+      });	  
 
       function getParameterByName(name) {
           name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
@@ -90,7 +71,7 @@
             </a-assets>
 
             <a-marker id="arvideomarker" type='pattern' url='{{marker.markerPattern}}'>
-                <a-video vidhandler src="#arvideo"  rotation="90 0 180" scale="1.77 1 1" ></a-video>				
+                <a-video src="#arvideo"  rotation="90 0 180" scale="1.77 1 1" ></a-video>				
 			      </a-marker>  		
             
             <a-entity camera></a-entity>
@@ -116,7 +97,7 @@
 	  	    
         arscene.addEventListener('touchstart', function(){
 	      
-        alert("test1");
+        alert("in touchstart event");
 
         if(arvideo.muted == true){
           arvideo.muted=false;
