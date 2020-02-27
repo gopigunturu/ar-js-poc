@@ -113,24 +113,24 @@
     <script >
 	 
 	var arscenev = document.querySelector('#arscene');   
-	var arvideo = document.querySelector('#arvideo');    
+	var arvideov = document.querySelector('#arvideo');    
 
         alert(arscenev.id);
 
 
-        arscene.addEventListener('touchstart', function(){
+        arscenev.addEventListener('touchstart', function(){
 	      
         alert("in touchstart event");
 
-        if(arvideo.muted == true){
-          arvideo.muted=false;
-        } else if(arvideo.muted == false){
-          arvideo.muted=true;
+        if(arvideov.muted == true){
+          arvideov.muted=false;
+        } else if(arvideov.muted == false){
+          arvideov.muted=true;
         }
-        if(arvideo.play == true){
-          arvideo.play=false;
-        } else if(arvideo.play == false){
-          arvideo.play=true;
+        if(arvideov.play == true){
+          arvideov.play=false;
+        } else if(arvideov.play == false){
+          arvideov.play=true;
         }
       }, false);		
     </script>	
