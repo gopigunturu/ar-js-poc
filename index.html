@@ -118,7 +118,9 @@
         alert(arscenev.id);
 
 
-        arscenev.addEventListener('touchstart', function(){
+        arscenev.addEventListener('touchstart', touchStartHandler, false);		
+
+        function touchStartHandler(event){
 	      
         alert("in touchstart event");
 
@@ -132,6 +134,7 @@
         } else if(arvideov.play == false){
           arvideov.play=true;
         }
-      }, false);		
+      }
+
     </script>	
 </html>
