@@ -56,6 +56,15 @@
               results = regex.exec(location.search);
           return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
       }
+
+      AFRAME.registerComponent('vidhandler', {
+        init: function () {
+          this.toggle = false;
+          document.querySelector("#arvideo").pause(); //reference to the video
+        }
+      });
+
+
     </script>
     
     <body style='margin : 0px; overflow: hidden;' ng-controller="ngController">
@@ -71,7 +80,7 @@
             </a-assets>
 
             <a-marker id="arvideomarker" type='pattern' url='{{marker.markerPattern}}'>
-                <a-video src="#arvideo"  rotation="90 0 180" scale="1.77 1 1" ></a-video>				
+                <a-video vidhandler src="#arvideo"  rotation="90 0 180" scale="1.77 1 1" ></a-video>				
 			      </a-marker>  		
             
             <a-entity camera></a-entity>
@@ -92,8 +101,8 @@
     </body>
     <script type="text/javascript">
 	 
-	var arscene = document.querySelector('#arscene');   
-	var arvideo = document.querySelector('#arvideo');    
+	var arscene = document.querySelector("[arscene]");   
+	var arvideo = document.querySelector("[arvideo]");    
 	  	    
         arscene.addEventListener('touchstart', function(){
 	      
